@@ -16,3 +16,53 @@ composer require --with-all-dependencies laravel/passport
 ```
 php artisan migrate
 ```
+
+En el archivo  User.php
+
+```
+/home/DockerImages/LARAVEL_PASSPORT_POSTGRESQL/apiRestful/app/User.php
+```
+
+```
+use Laravel\Passport\HasApiTokens;
+```
+
+```
+use HasApiTokens
+```
+
+En el archivo  AuthServiceProvider.php
+
+```
+/home/DockerImages/LARAVEL_PASSPORT_POSTGRESQL/apiRestful/app/Providers/AuthServiceProvider.php
+```
+
+```
+use Laravel\Passport\Passport;
+```
+
+
+En el archivo  auth.php
+
+```
+/home/DockerImages/LARAVEL_PASSPORT_POSTGRESQL/apiRestful/config/auth.php
+```
+
+```
+'driver' => 'passport',
+```
+
+En la consola ejecutamos el comando
+```
+composer require laravel/ui
+```
+
+```
+php artisan ui bootstrap --auth
+```
+
+En la consola ejecutamos el comando
+```
+php artisan passport:install
+```
+
