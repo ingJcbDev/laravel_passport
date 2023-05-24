@@ -16,4 +16,13 @@ class ClientController extends Controller
         $clients = \App\Client::where('user_id', Auth::user()->id)->get();
         return view('client', compact('clients'));    
     }
+
+    // Se crea metodo index para pasar los datos a la vista
+    public function clientExample()
+    {
+        return [
+            "tutor" => "Jonier Cabrera",
+            "Canal Youtube" => "Fiebre de tecnologia"
+        ];    
+    }
 }
