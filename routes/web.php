@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// middleware -> para poder acceder debe de estar autenticado
+Route::get('/client','ClientController@index')->middleware('auth');
+
+
+
+
