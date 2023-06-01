@@ -15,6 +15,11 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
+        // Esto espara insertar datos automaticos con la libreria fakerphp
+        // Genera 50 instancias de Post utilizando el Factory
+        factory(\App\Models\Post::class, 50)->create();
+
+        /*
         $data =
         [
             [
@@ -43,5 +48,6 @@ class PostSeeder extends Seeder
             ],
         ];
         DB::table('posts')->insert($data);
+        */
     }
 }
