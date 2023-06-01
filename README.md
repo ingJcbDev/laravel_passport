@@ -185,3 +185,39 @@ Se agrega en el archivo ClientController.php
     }
 ```
 
+# Laravel - Llenar database - Seeders y Factory link
+
+Los Seeders en Laravel se utilizan para poblar la base de datos con datos de prueba o datos iniciales. Permiten insertar registros en tablas de la base de datos de forma automática al ejecutar el comando db:seed, lo que facilita la creación de datos de prueba consistentes para el desarrollo y pruebas de la aplicación.
+https://www.youtube.com/watch?v=-FuQMoXBFbQ
+
+##Crear modelo y migracias
+Con este comando creamos el modelo y la migracion
+```
+php artisan make:model Models/Post -m
+```
+en el archivo /home/DockerImages/LARAVEL_PASSPORT_POSTGRESQL/apiRestful/database/migrations/2023_05_31_185344_create_posts_table.php
+
+y en el modelo se agrega las siguientes lineas /home/DockerImages/LARAVEL_PASSPORT_POSTGRESQL/apiRestful/app/Models/Post.php
+
+## Ejecutamos el comando de migracion
+```
+php artisan migrate
+```
+
+## Ejecutamos el comando de crear los Seeder
+```
+php artisan make:seeder PostSeeder
+```
+
+## Ejecutamos el comando para ejecutar el Seeder
+para que se llene la tabla con la informacion quemada
+```
+php artisan db:seed --class=NombreDelSeeder
+```
+
+## Refrescar todos los cambios
+Tener cuidado porque borra todo
+```
+php artisan migrate:fresh --seed
+```
+
