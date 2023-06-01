@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Sin autenticacion
+// Route::get('posts', function() {
+//     return \App\Models\Post::all();
+// });
+
+// Con autenticacion
+Route::get('posts', function() {
+    return \App\Models\Post::all();
+})->middleware('auth:api');
