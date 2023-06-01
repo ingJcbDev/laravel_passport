@@ -221,3 +221,22 @@ Tener cuidado porque borra todo
 php artisan migrate:fresh --seed
 ```
 
+## Modelo Factory Faker
+Crear los datos en automatico
+```
+php artisan make:factory NombreDelFactory
+```
+
+## Ejecutamos el comando 
+```
+php artisan db:seed --class=NombreDelSeeder
+```
+
+## Otra Forma de ejecutar el seeder es por la consola Tinker
+```
+php artisan tinker
+```
+## Luego este comando referenciando el modelo, factory y la cantidad a insertar
+```
+Post::factory()->count(30)->create()
+```
