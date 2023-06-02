@@ -18,7 +18,8 @@
             'use strict';
 
             const clientId = 1;
-            const clientSecret = 'GLuLsQpjxpaSjcr5My1UkPzNqbZMoqo39aVHXwTW';
+            // const clientSecret = 'GLuLsQpjxpaSjcr5My1UkPzNqbZMoqo39aVHXwTW';
+            const clientSecret = 'aF3vuwFocQXFiBmX82aKmwD99cuDFWBwF2jRJZ1e';
             const clientType = 'password';
 
             let loginForm = document.getElementById('loginForm');
@@ -43,7 +44,10 @@
                 .then(response => {
                     return response.json();
                 })
-                .then(data => console.log(data));
+                .then(data => {
+                    console.log(data)
+                    localStorage.setItem('token', data.access_token)
+                });
 
             });
         })();

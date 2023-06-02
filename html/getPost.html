@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+
+    <script>
+        (function () {
+            'use strict';
+
+            if (localStorage.getItem('token')) {
+
+                fetch('http://localhost:8280/api/posts', {
+                    method: 'GET',
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') }
+                })
+                    .then(response => {
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log(data);
+                        let li = '';
+                        data.forEach((post, index) => {
+                            li += '<li>' + post.content + '</li>';
+                        });
+                        document.querySelector('ul').innerHTML = li;
+                    })
+            }
+        })();
+    </script>
+</body>
+
+</html>
