@@ -252,3 +252,21 @@ php artisan passport:client --password
 php artisan key:generate 
 php artisan passport:keys
 ```
+
+Client Credentials Grant Tokens - OAuth2 con Laravel Passport
+
+# Para autenticacion de maquina a maquina, tareas automatizada
+
+Se ajusta en el siguiente archivo /home/DockerImages/LARAVEL_PASSPORT_POSTGRESQL/apiRestful/app/Http/Kernel.php
+
+```
+use Laravel\Passport\Http\Middleware\CheckClientCredentials;
+```
+
+
+```
+    protected $middleware = [
+
+        \App\Http\Middleware\Cors::class,
+    ];
+```
