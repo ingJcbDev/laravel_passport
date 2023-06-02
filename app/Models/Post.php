@@ -8,4 +8,12 @@ class Post extends Model
 {
     protected $table = "posts";
     public $timestamps = false;
+    protected $fillable = [
+        'title',
+        'content',
+        'color',
+        'phone',
+        'author',
+        'author_age',
+    ];
 }

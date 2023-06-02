@@ -241,7 +241,8 @@ php artisan tinker
 Post::factory()->count(30)->create()
 ```
 
-Password Grant Tokens
+# Password Grant Tokens
+
 https://laravel.com/docs/7.x/passport#password-grant-tokens
 Se utiliza para crear clientes que se van a conectar a la apliacion, ejemplo aplicaciones movil, app etc.
 comando para crear cliente
