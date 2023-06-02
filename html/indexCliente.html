@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="loginForm" method="POST">
+        <input type="email" id="email" placeholder="Email" required/>
+        <input type="password" id="password" placeholder="Contraseña" required/>
+        <input type="submit" id="login" placeholder="Ingresar" value="Ingresar"/>
+    </form>
+
+    <script>
+        (function() {
+            'use strict';
+
+            const clientId = 1;
+            const clientSecret = 'GLuLsQpjxpaSjcr5My1UkPzNqbZMoqo39aVHXwTW';
+            const clientType = 'password';
+
+            let loginForm = document.getElementById('loginForm');
+
+            loginForm.addEventListener('submit', e => {
+                e.preventDefault();
+
+                // Lógica de tu función aquí
+                fetch('http://localhost:8280/oauth/token', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        grant_type: 'password',
+                        client_id: clientId,
+                        client_secret: clientSecret,
+                        username: document.getElementById('email').value,
+                        password: document.getElementById('password').value,
+                    }),
+                    headers: {
+                       'Content-Type': 'application/json'
+                    },
+                })
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => console.log(data));
+
+            });
+        })();
+    </script>
+</body>
+
+</html>
