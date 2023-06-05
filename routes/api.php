@@ -26,12 +26,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Con autenticacion
 Route::get('posts', function() {
+    try {
     return \App\Models\Post::all();
+    } catch (\Exception $e) {
+        Log::error($e->getMessage()); // Registrar el error en el registro de Laravel
+        return response(['error' => $e->getMessage()]);
+    }
 })->middleware('auth:api');
 
 // Con middleware client
 Route::get('clients/posts', function() {
+    try {
     return \App\Models\Post::all();
+    } catch (\Exception $e) {
+        Log::error($e->getMessage()); // Registrar el error en el registro de Laravel
+        return response(['error' => $e->getMessage()]);
+    }
 })->middleware('client');
 
 Route::post('clients/posts', function(Request $request) {

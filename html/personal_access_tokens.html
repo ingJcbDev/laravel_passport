@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Access Tonkens</title>
+</head>
+
+<body>
+    <h1>Personal Access Tonkens</h1>
+    <br>
+    <input type="button" id="send" placeholder="Obtener Recursos" value="Obtener Recursos" onclick="send()" />
+    <br>
+    <br>
+
+    <b>
+        <div id="wrapper" style="color: forestgreen;"></div>
+    </b>
+
+    <br>
+    <br>
+
+    <div id="sendContent"></div>
+
+    <script>
+        function send() {
+
+            let accessToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiM2M3MGQyMjMwOWIzZjQ5NWI3ODBlMWRkMjM5MjZjMzRhZmQyMmYyMzU5YWE3OGMwZWIxNTc0MjlmNzU3YmZjNTRlMmI5NWQ5NmI4NjliMTciLCJpYXQiOjE2ODU5ODE1NTgsIm5iZiI6MTY4NTk4MTU1OCwiZXhwIjoxNzE3NjAzOTU4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.nm7aJfTVe3rwozygeoLYX8y2OSzU7xFk_gXMOSmmHKIiXsV527CbF4MOnseH8LooQTWNFb4-TOMY9cqp07wkXRPd1FFVAOwI6PHb0OMcdSpereAke_9G4bcleSQsBDYA5LeIg1H0SFAOrhxcplbyZ1ZLULQMJg0vwfcxQrd_Qr__PEBQKK9Fqd4ogFDVvQVGxPZT8UOCU_vTwgQRcGwEGhqD-tJNRoV6WfLrPN9-HYVwGGTCSrYt_WLQuxGRp7jVZg8I6zU1wEm3QDxlInYCAf4N559tdW64v5G-39VckvceQ0KtJQYFMJ0E4V1pt7OtQVfkNs1MBP_W8tktxbkP_BrNz7mmqM2w9IGemRc1-NkzJn5OWAmc7uVC44sF9T_W0O6nU1bzcXMS_RSJevNrLIp-RhNvRz9YrRpHUA1Haa2qXt8mUp6m1zDWjppQSIEpPeESOVSspsTILEzHbfVbYiJ5tQXF7gdS622B22IkJdOQyF5GXWI6fa2dc59rGOCZycLNMPxeRPNulH5_SifAOxs4oLiPt9dCrnKsDGwck6r_NxtcdVr-q7DRCdPpXWqbTPDUwu7p2Z3GIK7PmCGE4h_oLfPOeNdDZ3jMUvvAMgOzUOuzIe1LAhws_T035zQSY0D-MBTtjZ-rJzNd0dY4Q3ixBUshG4sxcqb0ufue968';
+
+            fetch('http://localhost:8280/api/clients/posts', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    </script>
+</body>
+
+</html>
