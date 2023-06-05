@@ -270,3 +270,37 @@ use Laravel\Passport\Http\Middleware\CheckClientCredentials;
         \App\Http\Middleware\Cors::class,
     ];
 ```
+
+https://www.youtube.com/watch?v=38PvY9yRd78
+
+Personal Access Tokens - OAuth2 con Laravel Passport - #7
+
+Auto gestion de token es una conexion mas simple
+https://laravel.com/docs/7.x/passport#personal-access-tokens
+
+Ejecutamos el comando
+Este comando de debe ejecutar antes de poder usar el modulo
+
+
+```
+php artisan passport:client --personal
+```
+
+```
+app/Http/Middleware/Cors.php
+
+->header("Access-Control-Allow-Credentials", "true")
+```
+
+```
+app/Providers/AuthServiceProvider.php
+
+
+        Passport::personalAccessClientId(
+            config('passport.personal_access_client.id')
+        );
+
+        Passport::personalAccessClientSecret(
+            config('passport.personal_access_client.secret')
+        );
+```
